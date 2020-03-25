@@ -23,7 +23,6 @@ public class TopScores extends AppCompatActivity {
     public void loadScores() {
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         String data = sharedPreferences.getString("high", "0");
-        System.out.println(data);
         scores.setText(data);
     }
 

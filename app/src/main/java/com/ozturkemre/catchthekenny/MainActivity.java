@@ -71,7 +71,6 @@ public class MainActivity extends AppCompatActivity {
                 for (ImageView image : imgs) {
                     image.setVisibility(View.INVISIBLE);
                 }
-//                SavePreferences("",""+score);
 
                 AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this);
                 alert.setTitle("Play again");
@@ -79,6 +78,7 @@ public class MainActivity extends AppCompatActivity {
 
 
                 if (score > getHigh()) {
+                    //TODO Usage Database instead of SavePreferences to save all high scores
                     SavePreferences("high", Integer.toString(score));
 
                 }
@@ -103,8 +103,6 @@ public class MainActivity extends AppCompatActivity {
             }
         }.start();
     }
-
-    ;
 
     public void increaseScore(View view) {
         score++;
@@ -146,8 +144,8 @@ public class MainActivity extends AppCompatActivity {
     public Integer getHigh() {
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         String data = sharedPreferences.getString("high", "0");
-        int hi = Integer.parseInt(data);
-        return hi;
+        int highScore = Integer.parseInt(data);
+        return highScore;
     }
 
     public void disableClick() {
